@@ -1,0 +1,17 @@
+data "template_file" "user_data_bastion" {
+  template = <<-EOF
+    #!/bin/bash
+    sudo apt update
+    sudo apt upgrade -y
+    sudo mkdir /tmp/kube
+    cd /tmp/kube
+    sudo curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+    sudo chmod +x kubectl
+    sudo mv kubectl /usr/local/bin/
+    sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+  EOF
+}
+
+  user_data = data.template_file.user_data_bastion.rendered
