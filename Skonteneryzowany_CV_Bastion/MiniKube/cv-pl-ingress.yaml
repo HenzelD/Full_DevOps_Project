@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cv-ingress
+spec:
+  rules:
+    - host: cv-pl.local
+      http:
+        paths:
+          - path: /cv_pl.pdf
+            pathType: Prefix
+            backend:
+              service:
+                name: cv-service
+                port:
+                  number: 80
