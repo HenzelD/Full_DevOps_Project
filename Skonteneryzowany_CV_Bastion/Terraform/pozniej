@@ -1,0 +1,49 @@
+data "template_file" "user_data_bastion" {
+  template = <<-EOF
+    #!/bin/bash
+    sudo yum, update
+    sudo yum, upgrade -y
+    sudo mkdir /tmp/kube
+    cd /tmp/kube
+    sudo curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+    sudo chmod +x kubectl
+    sudo mv kubectl /usr/local/bin/
+    sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+  EOF
+}
+
+  user_data = data.template_file.user_data_bastion.rendered
+
+sudo yum update
+sudo yum, upgrade -y
+sudo yum install git -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
+sudo mkdir /tmp/kube
+cd /tmp/kube
+sudo curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+cd /usr/local/bin/
+sudo git clone https://github.com/HenzelD/Minikube_Docker_CV_Bastion.git
+minikube start --driver=docker
+cd Minikube_Docker_CV_Bastion/Skonteneryzowany_CV_Bastion/CV/
+docker build -t cv-pl .
+cd /usr/local/bin/Minikube_Docker_CV_Bastion/Skonteneryzowany_CV_Bastion/EN_CV/
+docker build -t cv-en .
+cd ..
+minikube image load cv-pl:latest
+minikube image load cv-en:latest
+kubectl apply -f MiniKube/cv-pl-deployment.yaml
+kubectl apply -f MiniKube/cv-en-deployment.yaml
+kubectl apply -f MiniKube/cv-pl-service.yaml
+kubectl apply -f MiniKube/cv-en-service.yaml
+kubectl apply -f MiniKube/cv-pl-ingress.yaml
+kubectl apply -f MiniKube/cv-en-ingress.yaml
