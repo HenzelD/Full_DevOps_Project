@@ -48,7 +48,7 @@ pipeline {
             steps {
                 dir('docker/pl') {
                     sh '''
-                        echo "🚧 Building Polish CV image..."
+                        echo "🚧 Building Polissh CV image..."
                         docker build -t $ECR_PL .
 
                         echo "🚀 Pushing to ECR (PL)..."
