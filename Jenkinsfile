@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Webhook test') {
             steps {
-                echo '✅ Webhook dzasdiała2! Pipeline został uruchomiony.'
+                echo '✅ Webhook dzasdasdiała2! Pipeline został uruchomiony.'
             }
         }
     }
