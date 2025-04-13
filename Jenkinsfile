@@ -8,7 +8,7 @@ pipeline {
 
     stages {
 
-        stage('Terraform init (read S3 backend)') {
+        stage('Pozdro Terraform init (read S3 backend)') {
             steps {
                 dir('terraform') {
                     sh '''
