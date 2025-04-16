@@ -18,7 +18,13 @@ pipeline {
                 }
             }
         }
-
+        stage('Refresh Terraform state') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform refresh -input=false -no-color'
+                }
+            }
+        }
         stage('Get ECR repo URLs from Terraform') {
             steps {
                 dir('terraform') {
