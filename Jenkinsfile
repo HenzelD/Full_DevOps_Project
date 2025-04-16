@@ -21,7 +21,8 @@ pipeline {
         stage('Refresh Terraform state') {
             steps {
                 dir('terraform') {
-                    sh 'terraform refresh -input=false -no-color'
+                      echo "⚠️  Usuwanie lokalnego tfstate"
+                      rm -f terraform/terraform.tfstate*
                 }
             }
         }
