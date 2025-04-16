@@ -7,7 +7,13 @@ pipeline {
     }
 
     stages {
-
+        stage('Refresh Terraform state') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform refresh -input=false -no-color'
+                }
+            }
+        }
         stage('Pozdro  koniec essa Terraform init (read S3 backend)') {
             steps {
                 dir('terraform') {
@@ -15,14 +21,6 @@ pipeline {
                         echo "🔁 Initializing Terraform with remote S3 backend (only if needed)..."
                         terraform init -input=false -no-color
                     '''
-                }
-            }
-        }
-        stage('Refresh Terraform state') {
-            steps {
-                dir('terraform') {
-                      echo "⚠️  Usuwanie lokalnego tfstate"
-                      rm -f terraform/terraform.tfstate*
                 }
             }
         }
