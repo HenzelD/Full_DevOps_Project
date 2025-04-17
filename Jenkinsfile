@@ -12,7 +12,7 @@ pipeline {
                 dir('terraform') {
                     sh '''
                         echo "🔁 Initializing Terraform with remote S3 backend (only if needed)..."
-                        terraform init
+
                     '''
                 }
             }
