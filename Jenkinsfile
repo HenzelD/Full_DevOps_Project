@@ -57,7 +57,7 @@ pipeline {
 
         stage('Build & Push Polish CV') {
             steps {
-                dir('docker/pl') {
+                dir('docker/CV') {
                     sh '''
                         echo "🚧 Building Polish CV image..."
                         docker build -t $ECR_PL .
@@ -71,7 +71,7 @@ pipeline {
 
         stage('Build & Push English CV') {
             steps {
-                dir('docker/en') {
+                dir('docker/EN_CV') {
                     sh '''
                         echo "🚧 Building English CV image..."
                         docker build -t $ECR_EN .
