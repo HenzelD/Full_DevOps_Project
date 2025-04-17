@@ -5,21 +5,12 @@ pipeline {
         AWS_REGION = 'eu-west-2'
         CLUSTER_NAME = 'Cluster'
     }
-
-    stages {
-        stage('Refresh Terraform state') {
-            steps {
-                dir('terraform') {
-                    sh 'terraform refresh -input=false -no-color'
-                }
-            }
-        }
         stage('Pozdro  koniec essa Terraform init (read S3 backend)') {
             steps {
                 dir('terraform') {
                     sh '''
                         echo "🔁 Initializing Terraform with remote S3 backend (only if needed)..."
-                        terraform init -input=false -no-color
+                        terraform init
                     '''
                 }
             }
