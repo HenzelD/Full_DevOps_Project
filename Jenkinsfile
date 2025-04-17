@@ -98,6 +98,10 @@ pipeline {
                     echo "✅ Exporting KUBECONFIG so helm can see it..."
                     export KUBECONFIG=$WORKSPACE/.kube/config
 
+                    echo "🔍 Checking EKS connection..."
+                    aws sts get-caller-identity
+                    kubectl get nodes
+
                     echo "🚀 Deploying Polish CV..."
                     helm upgrade cv-pl k8s/helm-cv-chart \
                         --install \
