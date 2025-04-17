@@ -95,6 +95,9 @@ pipeline {
                     echo "📡 Updating kubeconfig for EKS..."
                     aws eks update-kubeconfig --name $CLUSTER_NAME --region $AWS_REGION
 
+                    echo "✅ Exporting KUBECONFIG so helm can see it..."
+                    export KUBECONFIG=$WORKSPACE/.kube/config
+
                     echo "🚀 Deploying Polish CV..."
                     helm upgrade cv-pl k8s/helm-cv-chart \
                         --install \
