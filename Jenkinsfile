@@ -5,6 +5,8 @@ pipeline {
         AWS_REGION = 'eu-west-2'
         CLUSTER_NAME = 'Cluster'
     }
+
+    stages {
         stage('Pozdro  koniec essa Terraform init (read S3 backend)') {
             steps {
                 dir('terraform') {
@@ -113,5 +115,5 @@ pipeline {
                 '''
             }
         }
-    
+    }
 }
