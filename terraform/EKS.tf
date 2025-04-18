@@ -1,10 +1,26 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
+  version = "~> 20.0"
 
 
   iam_role_arn = module.eks_cluster_role.iam_role_arn
   cluster_name    = "Cluster"
   cluster_version = "1.31"
+  
+  access_entries = {
+    jenkins = {
+      principal_arn = "arn:aws:iam::713881808991:role/jenkins-ci-cd-role"
+
+      policy_associations = {
+        admin-access = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+          access_scope = {
+            type = "cluster"
+          }
+        }
+      }
+    }
+  }
 
   # Optional
   cluster_endpoint_public_access = true
