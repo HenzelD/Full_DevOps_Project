@@ -9,9 +9,9 @@ image:
 
 service:
   type: LoadBalancer
-  port: 81
+  port: 80
 
-containerPort: 81
+containerPort: 80
 
 resources:
   limits:
@@ -23,12 +23,12 @@ resources:
 
 livenessProbe:
   path: /
-  port: 81
+  port: 80
   initialDelaySeconds: 5
   periodSeconds: 10
 
 readinessProbe:
   path: /
-  port: 81
+  port: 80
   initialDelaySeconds: 5
   periodSeconds: 10
