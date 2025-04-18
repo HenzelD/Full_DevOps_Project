@@ -5,7 +5,7 @@ replicaCount: 2
 image:
   repository: ""
   tag: ""
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: LoadBalancer
