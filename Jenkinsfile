@@ -32,11 +32,9 @@ pipeline {
             steps {
                 script {
                     def branch = env.BRANCH_NAME ?: 'manual'
-                    env.TAG = (branch == 'main') ? 'latest' : "v-${env.BUILD_NUMBER}"
-
+                    env.TAG = "v-${env.BUILD_NUMBER}"  // 👈 niezależnie od brancha
                     env.ECR_PL = "${env.ECR_PL_BASE}:${env.TAG}"
                     env.ECR_EN = "${env.ECR_EN_BASE}:${env.TAG}"
-
                     echo "📦 Polish ECR image: ${env.ECR_PL}"
                     echo "📦 English ECR image: ${env.ECR_EN}"
                 }
