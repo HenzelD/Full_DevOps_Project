@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}
+    annotations:
+    rollme: "{{ now | unixEpoch }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
