@@ -1,51 +1,39 @@
-# Full DevOps Project – CI/CD na AWS
+# Full DevOps Project – CI/CD on AWS
 
-Ten projekt przedstawia kompletny pipeline CI/CD zbudowany w oparciu o narzędzia DevOps i chmurę AWS. Jego celem jest pełna automatyzacja procesu budowy, testowania i wdrażania aplikacji — w tym przypadku: moje CV w formacie PDF, dostępne online w wersji polskiej i angielskiej.
+This project presents a complete CI/CD pipeline built using DevOps tools and the AWS cloud. Its goal is to fully automate the process of building, testing, and deploying an application — in this case, my CV in PDF format, available online in both Polish and English versions.
 
-## Stack technologiczny
+## Used Technologies
 
-- **Terraform** – provisioning infrastruktury w AWS (EKS, IAM, ECR)
-- **Jenkins** – automatyzacja pipeline CI/CD
-- **Docker** – budowanie i konteneryzacja aplikacji
-- **Helm** – zarządzanie wdrożeniami w Kubernetesie
-- **AWS EKS** – zarządzany klaster Kubernetes
-- **AWS ECR** – prywatny rejestr kontenerów
-- **GitHub** – zarządzanie kodem źródłowym i webhooki
+- **Terraform** – building infrastructure in AWS (EKS, IAM, ECR, VPC)
+- **Jenkins** – CI/CD pipeline automation  
+- **Docker** – application building and containerization  
+- **Helm** – Kubernetes deployment management  
+- **AWS EKS** – managed Kubernetes cluster  
+- **AWS ECR** – private container registry  
+- **GitHub** – source code management and webhooks  
 
 ---
 
-## Przepływ CI/CD
+## CI/CD
 
-1. **Push do GitHub** (np. `main`)
+1. **Push to GitHub** (Test or main branch)
 2. **Jenkins**:
-   - Buduje obraz Dockera z aplikacją (CV hostowane przez Nginx)
-   - Wysyła obraz do **ECR**
-   - Jeśli to `main` → deploy do EKS przez Helm
+   - Builds a Docker image with the application (CV hosted by Nginx)
+   - Pushes the image to **ECR**
+   - If it's a `main` push → deploys to EKS using Helm
 3. **EKS**:
-   - Tworzy Load Balancer
-   - Aplikacja dostępna publicznie:
-     - `http://example.com/` → CV po polsku
-     - `http://example.com:81/` → CV po angielsku
+   - Creates a Load Balancer
 ---
 
-## 🚀 Jak uruchomić projekt lokalnie
+## How to Run the Project Locally
 
-1. Zainstaluj:
+1. Install:
    - Terraform
-   - Docker
-   - AWS CLI + skonfiguruj poświadczenia (`aws configure`)
-2. Utwórz infrastrukturę:
+   - AWS CLI + run command (`aws configure`)
+2. Clone repository:
    ```bash
+   git clone https://github.com/HenzelD/Full_DevOps_Project.git
    cd terraform
    terraform init
    terraform apply
-graph TD
-    GitHub --> Jenkins
-    Jenkins --> Docker[Build Docker Image]
-    Docker --> ECR[Push to ECR]
-    ECR --> Helm[Deploy via Helm]
-    Helm --> EKS
-    EKS --> LB[Load Balancer]
-    LB --> CV[Public CV App]
-
 
