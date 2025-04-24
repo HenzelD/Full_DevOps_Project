@@ -8,18 +8,27 @@ module "vpc" {
   azs = var.vpc_az
   private_subnets     = var.vpc_private_subnets
   public_subnets      = var.vpc_public_subnets
+
+  private_subnet_tags = {
+  Name                             = "Private-Subnet"
+  "kubernetes.io/role/internal-elb" = "1"
+  "kubernetes.io/cluster/Cluster" = "owned"
+  }
+
+  public_subnet_tags = {
+  Name                           = "Public-Subnet"
+  "kubernetes.io/role/elb"         = "1"
+  "kubernetes.io/cluster/Cluster" = "owned"
+  }
+  map_public_ip_on_launch = true
+
+
   
   enable_nat_gateway = true
   single_nat_gateway  = true
 
   enable_dns_hostnames = true
 
-  private_subnet_tags = {
-    Name = "Private-Subnet"
-  }
-  public_subnet_tags = {
-    Name = "Public-Subnet"
-  }
   database_subnet_tags = {
     Name = "DB-Subnet"
   }

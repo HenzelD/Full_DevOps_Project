@@ -4,6 +4,8 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app: {{ .Values.name }}
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
   type: {{ .Values.service.type }}
   selector:
