@@ -46,7 +46,7 @@ This project presents a complete CI/CD pipeline built using DevOps tools and the
 
 ![jen_ceredntials](https://github.com/user-attachments/assets/d58a055e-a3b4-4ad0-8776-9763081e675a)
 
-#3. Multibranch pipeline configuration
+### 3. Multibranch pipeline configuration
 
 ![pipeline12](https://github.com/user-attachments/assets/ef428fc7-6f2e-4f5b-b3ca-56f943e1fbf5)
 ![jen_pipe22](https://github.com/user-attachments/assets/31c027f9-5eb1-4a54-a599-879c77ca6701)
@@ -55,20 +55,61 @@ This project presents a complete CI/CD pipeline built using DevOps tools and the
 
 ## My steps and result of project
 ### Terraform init and apply
-![terra_apply](https://github.com/user-attachments/assets/16acf046-f912-46c1-aa18-f8cc0c443083)
+![terra_apply](https://github.com/user-attachments/assets/e9142a30-3c5b-4d06-9932-d0f9e0895c0e)
 
-
+---
 ### Using sourcetree commit and push to Test branch
-![source_commit](https://github.com/user-attachments/assets/61465f2b-2984-4a0f-a950-c5d25df4fd68)
+![source_commit_readmetest](https://github.com/user-attachments/assets/b726decf-5b31-41b1-a669-3d2d14c068d7)
 
+---
 ### Jenkins automaticly turns on
-![jen_testpipe](https://github.com/user-attachments/assets/e66b4cef-b16f-4ecc-91f8-f996161044f7)
+![jen_testsuc](https://github.com/user-attachments/assets/565e4a1d-9828-41f2-88f6-56a67139ab54)
 
+---
 ### Merge Test branch with main
-![git_merge](https://github.com/user-attachments/assets/6cdded74-71f0-4cbc-aa71-313abd220bf5)
+![git_merge](https://github.com/user-attachments/assets/1ac07bd9-665a-4c3b-be39-9a22481f0b0c)
 
+---
 ### Jenkins automaticly turns on
-![jen_pipemerge](https://github.com/user-attachments/assets/807a205a-49eb-4111-aac3-af822b4683ad)
+![jen_mergesuc](https://github.com/user-attachments/assets/585b45b7-d0e1-4f24-91f9-feccec853ec5)
+
+---
+### DNS of loadbalancers
+![jen_loadbala](https://github.com/user-attachments/assets/ab71c3e7-ee19-4f6e-bbf1-60683d6fac3b)
+
+---
+### Resul CV PL
+![cvpl](https://github.com/user-attachments/assets/0498b08b-d175-4ed3-9f40-5438f511eb22)
+
+---
+### Resul CV EN
+![cven](https://github.com/user-attachments/assets/152ce29d-0329-4b4c-87b5-79e0832c8593)
+
+---
+### Change for different pdf in CV EN
+![source_change_ENCV](https://github.com/user-attachments/assets/8495ba9b-a842-469e-8074-8ea25bb6d6ca)
+
+---
+### Jenkins automaticly turns on
+![jen_cven_test](https://github.com/user-attachments/assets/1f7fdc26-84bb-4761-927a-e6504e72865d)
+
+---
+### Merge Test branch with main
+![git_merge_ENCV](https://github.com/user-attachments/assets/1d277925-5383-4488-948f-92974e51af36)
+
+---
+### Jenkins automaticly turns on
+![jen_cven_merge](https://github.com/user-attachments/assets/94b50618-dd12-45a7-b92b-73b35fead82c)
+
+---
+### Resul CV EN
+![cven_change](https://github.com/user-attachments/assets/caa43e15-9a12-45d6-a466-94ce3fb022e9)
+
+
+
+
+
+
 
 
 
