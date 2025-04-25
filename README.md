@@ -24,11 +24,6 @@ This project presents a complete CI/CD pipeline built using DevOps tools and the
 3. **EKS**:
    - Creates a Load Balancer
 ---
-## Requirements:
-- AWS account 
-- Terraform
-- Jenkins
----
 ## GitHub Configuration
 
 ### 1. Setting a webhook in repository
