@@ -1,10 +1,10 @@
 apiVersion: v2
 name: cv-app
-description: CV Web App (PL/EN) deployed to EKS via Jenkins & Helm
+description: cv web app
 type: application
-version: 1.0.0          # wersja charta (zmieniasz ręcznie)
-appVersion: "1.0.0"     # wersja Twojej aplikacji (np. obraz Dockera)
+version: 1.0.0          
+appVersion: "1.0.0"     
 
 maintainers:
   - name: Dominik Henzel
-    email: dominik@example.com
+    email: domhen2001@gmail.com
